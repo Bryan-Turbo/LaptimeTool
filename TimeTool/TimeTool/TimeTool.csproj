@@ -58,7 +58,7 @@
     <Compile Include="Errors\Error.cs" />
     <Compile Include="Laptime\ILapTime.cs" />
     <Compile Include="Laptime\LapTime.cs" />
-    <Compile Include="AppStyle.cs" />
+    <Compile Include="Styles\AppStyle.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
