@@ -26,7 +26,7 @@ namespace TimeTool {
 
         public MainWindow() {
             InitializeComponent();
-            this.Title = "Laptime Converter";
+            this.Title = "Laptime Tool";
 
             this.LapTime = new LapTime(0, 0, 0, 0);
 
