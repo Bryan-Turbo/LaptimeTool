@@ -22,6 +22,7 @@ namespace TimeTool {
     /// </summary>
     public partial class MainWindow : Window {
         private ILapTime LapTime { get; set; }
+        private AppStyle CurrentStyle { get; set; }
 
         public MainWindow() {
             InitializeComponent();
@@ -33,9 +34,8 @@ namespace TimeTool {
             this.AverageLapLabel.Content = "Average Laptime";
             this.EnterLabel1.Content = "Enter Racetime";
 
-            this.ComboBox.Items.Add(AppStyle.Light);
-            this.ComboBox.Items.Add(AppStyle.Dark);
-            this.ComboBox.SelectedIndex = 0;
+            this.CurrentStyle = AppStyle.Dark;
+            this.SetToDark();
         }
 
         private void ClickLaptime(object sender, RoutedEventArgs e) {
@@ -85,22 +85,42 @@ namespace TimeTool {
             this.LaptimeBox.Text = this.LapTime.ToString();
         }
 
-        private void ComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
-            
+        private void ChangeStyleButton_Click(object sender, RoutedEventArgs e) {
+            if (this.CurrentStyle == AppStyle.Dark) {
+                this.CurrentStyle = AppStyle.Light;
+                this.SetToLight();
+            } else {
+                this.CurrentStyle = AppStyle.Dark;
+                this.SetToDark();
+            }
         }
 
-        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
-            if ((AppStyle) this.ComboBox.SelectedItem == AppStyle.Dark) {
-                this.EnterButton.Style = (Style) Application.Current.Resources["DarkButtonStyle"];
-                this.InputLaptime.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
-                this.LapAmountBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
-                this.LaptimeBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
-            } else {
-                this.EnterButton.Style = (Style) Application.Current.Resources["LightButtonStyle"];
-                this.InputLaptime.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
-                this.LapAmountBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
-                this.LaptimeBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
-            }
+        private void SetToDark() {
+            this.EnterButton.Style = (Style) Application.Current.Resources["DarkButtonStyle"];
+            this.ChangeStyleButton.Style = (Style) Application.Current.Resources["DarkButtonStyle"];
+            this.InputLaptime.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+            this.LapAmountBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+            this.LaptimeBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+            this.Window.Background = new SolidColorBrush(Color.FromRgb(56, 56, 56));
+            this.AverageLapLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.LapLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.EnterLabel1.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+        }
+
+        private void SetToLight() {
+            this.EnterButton.Style = (Style) Application.Current.Resources["LightButtonStyle"];
+            this.ChangeStyleButton.Style = (Style) Application.Current.Resources["LightButtonStyle"];
+            this.InputLaptime.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+            this.LapAmountBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+            this.LaptimeBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+            this.Window.Background = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+            this.AverageLapLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.LapLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.EnterLabel1.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
         }
     }
 }
