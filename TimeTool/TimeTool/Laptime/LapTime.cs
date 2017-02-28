@@ -11,10 +11,6 @@ namespace TimeTool.Laptime {
 
         private float TrueMilliseconds => this.Milliseconds / 1000f;
 
-        public LapTime() {
-            
-        }
-
         public LapTime(int minutes, int seconds, int milliseconds) {
             this.Hours = 0;
             this.Minutes = minutes;
