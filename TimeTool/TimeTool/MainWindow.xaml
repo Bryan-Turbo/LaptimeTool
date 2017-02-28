@@ -19,19 +19,19 @@
 
         <Label Grid.Column="0" x:Name="EnterLabel1" Content="Enter Your Racetime" Margin="10,91,10,0" VerticalAlignment="Top"/>
         <TextBox Grid.Column="0" x:Name="InputLaptime" VerticalContentAlignment="Center" Height="40" Margin="10,122,10,0" Padding="5" TextWrapping="Wrap" Text="00:00.000" VerticalAlignment="Top" KeyDown="EnterLaptime"/>
-        <Button x:Name="EnterButton" Content="Show Average Laptime" Margin="10,122,10,0" VerticalAlignment="Top" Height="40" Grid.Column="1" Click="ClickLaptime"/>
+        <Button x:Name="EnterButton" Style="{DynamicResource LightButtonStyle}" Content="Show Average Laptime" Margin="10,122,10,0" VerticalAlignment="Top" Height="40" Grid.Column="1" Click="ClickLaptime"/>
 
         <!--<CheckBox Grid.Column="0" x:Name="MultipleLaptimes" Content="Multiple Laptimes" Margin="10,167,258,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="40" Click="ToggleMutipleLaptimes"/>-->
-        <Label Grid.Column="0" x:Name="Label" Content="Laps:" Margin="10,167,472,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="40"/>
-        <TextBox Grid.Column="0" x:Name="LapAmountBox" Height="40" Margin="53,167,10,0" Padding="5" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" VerticalContentAlignment="Center"/>
+        <Label Grid.Column="0" x:Name="Label" Content="Number Of Laps:" Margin="10,167,365,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="40"/>
+        <TextBox Grid.Column="0" x:Name="LapAmountBox" Height="40" Margin="160,167,10,0" Padding="5" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" VerticalContentAlignment="Center"  KeyDown="EnterLaptime"/>
 
 
-        <TextBox Grid.Column="0" x:Name="LaptimeBox" Margin="10,0,10,10" Padding="5" TextWrapping="Wrap" Text="00:00.000" VerticalContentAlignment="Center" Height="40" VerticalAlignment="Bottom"/>
+        <TextBox Grid.Column="0" x:Name="LaptimeBox" Margin="10,0,10,10" Padding="5" TextWrapping="Wrap" Text="00:00.000" VerticalContentAlignment="Center" Height="40" VerticalAlignment="Bottom" IsReadOnly="True"/>
         <Label Grid.Column="0" x:Name="AverageLapLabel" Content="Average Laptime" VerticalContentAlignment="Center" Padding="5, 0, 0, 0" Margin="10,0,10,50" VerticalAlignment="Bottom" Height="30"/>
 
 
         <Label x:Name="WindowStyleLabel" Content="Window Style" Grid.Column="1" Margin="10,0,10,55" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Padding="5, 0, 0, 0" Height="20"/>
-        <ComboBox x:Name="ComboBox" Grid.Column="1" Margin="10,0,10,10" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Height="40"/>
+        <ComboBox x:Name="ComboBox" Grid.Column="1" Margin="10,0,10,10" VerticalAlignment="Bottom" VerticalContentAlignment="Center" Height="40" DataContextChanged="ComboBox_DataContextChanged" SelectionChanged="ComboBox_SelectionChanged"/>
 
     </Grid>
 </Window>

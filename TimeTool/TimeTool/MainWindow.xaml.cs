@@ -30,10 +30,11 @@ namespace TimeTool {
             this.LapTime = new LapTime(0, 0, 0, 0);
 
             this.EnterButton.Content = "Show Average Laptime";
-            this.AverageLapLabel.Content = "Laptime";
+            this.AverageLapLabel.Content = "Average Laptime";
             this.EnterLabel1.Content = "Enter Racetime";
 
             this.ComboBox.Items.Add(AppStyle.Light);
+            this.ComboBox.Items.Add(AppStyle.Dark);
             this.ComboBox.SelectedIndex = 0;
         }
 
@@ -58,8 +59,20 @@ namespace TimeTool {
                 Error.ShowFormatError();
                 return;
             }
+
+            if (laptimes.Length != 3 && laptimes.Length != 4) {
+                Error.ShowFormatError();
+                return;
+            }
+
             if (laptimes[laptimes.Length - 1] >= 1000) {
                 Error.ShowFormatError();
+                return;
+            }
+
+            int laps;
+            if (!int.TryParse(this.LapAmountBox.Text, out laps)) {
+                Error.ShowLapamountError();
                 return;
             }
 
@@ -67,7 +80,27 @@ namespace TimeTool {
                 ? new LapTime (laptimes[0], laptimes[1], laptimes[2], laptimes[3])
                 : new LapTime (laptimes[0], laptimes[1], laptimes[2]);
 
+            this.LapTime.Divide(laps);
+
             this.LaptimeBox.Text = this.LapTime.ToString();
+        }
+
+        private void ComboBox_DataContextChanged(object sender, DependencyPropertyChangedEventArgs e) {
+            
+        }
+
+        private void ComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e) {
+            if ((AppStyle) this.ComboBox.SelectedItem == AppStyle.Dark) {
+                this.EnterButton.Style = (Style) Application.Current.Resources["DarkButtonStyle"];
+                this.InputLaptime.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+                this.LapAmountBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+                this.LaptimeBox.Style = (Style) Application.Current.Resources["DarkTextBoxStyle"];
+            } else {
+                this.EnterButton.Style = (Style) Application.Current.Resources["LightButtonStyle"];
+                this.InputLaptime.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+                this.LapAmountBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+                this.LaptimeBox.Style = (Style) Application.Current.Resources["LightTextBoxStyle"];
+            }
         }
     }
 }
