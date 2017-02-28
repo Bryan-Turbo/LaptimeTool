@@ -12,5 +12,9 @@ namespace TimeTool.Errors {
                             "Please enter your laptime in the following format:\n" +
                             "00:00.000 or 0:00:00.000", "Format Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
+
+        public static void ShowLapamountError() {
+            MessageBox.Show("Please enter a valid number of laps", "Lap Amount Error", MessageBoxButton.OK, MessageBoxImage.Error);
+        }
     }
 }
