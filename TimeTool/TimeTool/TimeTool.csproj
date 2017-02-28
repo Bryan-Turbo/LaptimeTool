@@ -55,6 +55,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Errors\Error.cs" />
     <Compile Include="Laptime\ILapTime.cs" />
     <Compile Include="Laptime\LapTime.cs" />
     <Compile Include="AppStyle.cs" />
@@ -101,9 +102,7 @@
   <ItemGroup>
     <Resource Include="NODO app banner small.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Errors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

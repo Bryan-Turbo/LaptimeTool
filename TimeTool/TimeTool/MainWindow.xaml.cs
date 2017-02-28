@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TimeTool.Errors;
 using TimeTool.Laptime;
 
 namespace TimeTool {
@@ -53,11 +54,11 @@ namespace TimeTool {
                 if (int.TryParse(times[i], out laptimes[i])) {
                     continue;
                 }
-                this.ShowError();
+                Error.ShowFormatError();
                 return;
             }
             if (laptimes[laptimes.Length - 1] >= 1000) {
-                this.ShowError();
+                Error.ShowFormatError();
                 return;
             }
 
@@ -66,12 +67,6 @@ namespace TimeTool {
                 : new LapTime (laptimes[0], laptimes[1], laptimes[2]);
 
             this.LaptimeBox.Text = this.LapTime.ToString();
-        }
-
-        private void ShowError() {
-            MessageBox.Show("The entered Lap time has an invalid format\n" +
-                            "Please enter your laptime in the following format:\n" +
-                            "00:00.000 or 0:00:00.000", "Format Error", MessageBoxButton.OK, MessageBoxImage.Error);
         }
     }
 }
