@@ -105,6 +105,7 @@ namespace TimeTool {
             this.AverageLapLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.LapLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.EnterLabel1.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.CreditLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(239, 239, 239));
         }
@@ -119,6 +120,7 @@ namespace TimeTool {
             this.AverageLapLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.LapLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.EnterLabel1.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.CreditLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
         }

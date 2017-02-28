@@ -17,11 +17,11 @@
             <Image Source="NODO app banner small.png" Stretch="Fill"/>
         </Border>
 
-        <Label Grid.Column="0" x:Name="EnterLabel1" Content="Enter Your Racetime" Margin="10,91,10,0" VerticalAlignment="Top"/>
+        <Label Grid.Column="0" x:Name="EnterLabel1" Content="Enter Your Racetime" Margin="10,91,365,0" VerticalAlignment="Top"/>
         <TextBox Grid.Column="0" x:Name="InputLaptime" VerticalContentAlignment="Center" Height="40" Margin="10,122,10,0" Padding="5" TextWrapping="Wrap" Text="00:00.000" VerticalAlignment="Top" KeyDown="EnterLaptime"/>
         <Button x:Name="EnterButton" Style="{DynamicResource LightButtonStyle}" Content="Show Average Laptime" Margin="10,122,10,0" VerticalAlignment="Top" Height="40" Grid.Column="1" Click="ClickLaptime"/>
-        
-        
+
+
         <Label Grid.Column="0" x:Name="LapLabel" Content="Number Of Laps:" Margin="10,167,365,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="40"/>
         <TextBox Grid.Column="0" x:Name="LapAmountBox" Height="40" Margin="160,167,10,0" Padding="5" TextWrapping="Wrap" Text="2" VerticalAlignment="Top" VerticalContentAlignment="Center"  KeyDown="EnterLaptime"/>
 
@@ -29,6 +29,9 @@
         <TextBox Grid.Column="0" x:Name="LaptimeBox" Margin="10,0,10,10" Padding="5" TextWrapping="Wrap" Text="00:00.000" VerticalContentAlignment="Center" Height="40" VerticalAlignment="Bottom" IsReadOnly="True"/>
         <Label Grid.Column="0" x:Name="AverageLapLabel" Content="Average Laptime" VerticalContentAlignment="Center" Padding="5, 0, 0, 0" Margin="10,0,10,50" VerticalAlignment="Bottom" Height="30"/>
         <Button x:Name="ChangeStyleButton" Content="Change To Light Theme" Grid.Column="1" Margin="10,0,10,10" VerticalAlignment="Bottom" Height="40" Click="ChangeStyleButton_Click"/>
+        
+        <Label x:Name="CreditLabel" Content="Created By Bryan-Turbo" Margin="334,92,10,0" VerticalAlignment="Top" VerticalContentAlignment="Center" HorizontalContentAlignment="Right" Padding="0, 0, 5, 0" Height="25" Grid.ColumnSpan="2"
+               Grid.Column="0" />
 
     </Grid>
 </Window>
