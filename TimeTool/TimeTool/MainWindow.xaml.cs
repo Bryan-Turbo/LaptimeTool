@@ -108,6 +108,7 @@ namespace TimeTool {
             this.CreditLabel.Foreground = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(239, 239, 239));
+            this.ChangeStyleButton.Content = "Change To Light Theme";
         }
 
         private void SetToLight() {
@@ -123,6 +124,7 @@ namespace TimeTool {
             this.CreditLabel.Foreground = new SolidColorBrush(Color.FromRgb(86, 86, 86));
             this.NodoBanner.Background = new SolidColorBrush(Color.FromRgb(239, 239, 239));
             this.NodoBanner.BorderBrush = new SolidColorBrush(Color.FromRgb(86, 86, 86));
+            this.ChangeStyleButton.Content = "Change To Dark Theme";
         }
     }
 }
